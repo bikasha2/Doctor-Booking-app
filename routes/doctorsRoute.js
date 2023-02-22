@@ -37,7 +37,6 @@ router.post("/get-doctor-info-by-id", authMiddleware, async (req, res) => {
 
 router.post("/update-doctor-profile", authMiddleware, async (req, res) => {
   try {
-    console.log(req.body)
     const doctor = await Doctor.findOneAndUpdate(
       { userId: req.body.userId },
       req.body
@@ -67,7 +66,6 @@ router.get(
         data: appointments,
       });
     } catch (error) {
-      console.log(error);
       res.status(500).send({
         message: "Error fetching appointments",
         success: false,
@@ -99,7 +97,6 @@ router.post("/change-appointment-status", authMiddleware, async (req, res) => {
       success: true
     });
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       message: "Error changing appointment status",
       success: false,

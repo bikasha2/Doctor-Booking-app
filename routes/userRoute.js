@@ -26,7 +26,6 @@ router.post("/register", async (req, res) => {
       .status(200)
       .send({ message: "User created successfully", success: true });
   } catch (error) {
-    console.log(error);
     res
       .status(500)
       .send({ message: "Error creating user", success: false, error });
@@ -55,7 +54,6 @@ router.post("/login", async (req, res) => {
         .send({ message: "Login successful", success: true, data: token });
     }
   } catch (error) {
-    console.log(error);
     res
       .status(500)
       .send({ message: "Error logging in", success: false, error });
@@ -105,7 +103,6 @@ router.post("/apply-doctor-account", authMiddleware, async (req, res) => {
       message: "Doctor account applied successfully",
     });
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       message: "Error applying doctor account",
       success: false,
@@ -132,7 +129,7 @@ router.post(
         data: updatedUser,
       });
     } catch (error) {
-      console.log(error);
+
       res.status(500).send({
         message: "Error applying doctor account",
         success: false,
@@ -155,7 +152,6 @@ router.post("/delete-all-notifications", authMiddleware, async (req, res) => {
       data: updatedUser,
     });
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       message: "Error applying doctor account",
       success: false,
@@ -173,7 +169,6 @@ router.get("/get-all-approved-doctors", authMiddleware, async (req, res) => {
       data: doctors,
     });
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       message: "Error applying doctor account",
       success: false,
@@ -202,7 +197,6 @@ router.post("/book-appointment", authMiddleware, async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       message: "Error booking appointment",
       success: false,
@@ -236,7 +230,6 @@ router.post("/check-booking-avilability", authMiddleware, async (req, res) => {
       });
     }
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       message: "Error booking appointment",
       success: false,
@@ -254,7 +247,6 @@ router.get("/get-appointments-by-user-id", authMiddleware, async (req, res) => {
       data: appointments,
     });
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       message: "Error fetching appointments",
       success: false,
